@@ -72,11 +72,24 @@ plugins:
 
 package:
   exclude:
-    - .venv/**
     - node_modules/**
+    - venv/**
+    - .venv/**
+    - tests/**
     - __pycache__/**
-    - .pytest_cache/**
+    - .git/**
     - .DS_Store
+    - .pytest_cache/**
+    - .coverage
+    - htmlcov/**
+    - backend/node_modules/**
+    - backend/.requirements.zip
+    - backend/.serverless/**
+    - backend/build/**
+    - backend/dist/**
+    - backend/*.egg-info/**
+    - backend/.eggs/**
+    - backend/env/**
 
 custom:
   pythonRequirements:
