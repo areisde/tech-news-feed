@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 
 backend/.requirements.zip
-backend/node_modules
+#backend/node_modules
 
 # Virtual environments
 venv/
