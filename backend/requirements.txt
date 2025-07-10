@@ -3,3 +3,6 @@ supabase
 litellm
 openai
 sentence_transformers
+vecs
+fastapi
+uvicorn

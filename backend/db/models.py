@@ -9,12 +9,12 @@ class Source:
 
 @dataclass
 class Article:
+    id: str
     title: str
     body: str
     published_at: Optional[str]
-    source_id: int
-    external_id: Optional[str] = None
     url: Optional[str] = None
+    source : str = None
     created_at: Optional[str] = None
 
 @dataclass

@@ -8,13 +8,11 @@ CREATE TABLE IF NOT EXISTS sources (
 
 -- Table: articles
 CREATE TABLE IF NOT EXISTS articles (
-    id SERIAL PRIMARY KEY,
+    id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
     body TEXT,
     published_at TIMESTAMP,
-    source_id INTEGER REFERENCES sources(id),
-    external_id TEXT, -- original id from RSS/Reddit
-    url TEXT,
+    source TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );
 
