@@ -51,12 +51,29 @@ provider:
 #    variable1: value1
 
 # you can add packaging information here
-#package:
-#  patterns:
-#    - '!exclude-me.py'
-#    - '!exclude-me-dir/**'
-#    - include-me.py
-#    - include-me-dir/**
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!venv/**'
+    - '!backend/node_modules/**'
+    - '!backend/.requirements.zip'
+    - '!backend/.serverless/**'
+    - '!backend/build/**'
+    - '!backend/dist/**'
+    - '!backend/*.egg-info/**'
+    - '!backend/.eggs/**'
+    - '!backend/env/**'
+    - '!tests/**'
+    - '!__pycache__/**'
+    - '!*.pyc'
+    - '!*.pyo'
+    - '!*.pyd'
+    - '!*.log'
+    - '!htmlcov/**'
+    - '!backend/.DS_Store'
+    - '!backend/.pytest_cache/**'
+    - '!backend/.coverage'
+    - '!backend/.git/**'
 
 functions:
   app:
@@ -69,27 +86,6 @@ functions:
 
 plugins:
   - serverless-python-requirements
-
-package:
-  exclude:
-    - node_modules/**
-    - venv/**
-    - .venv/**
-    - tests/**
-    - __pycache__/**
-    - .git/**
-    - .DS_Store
-    - .pytest_cache/**
-    - .coverage
-    - htmlcov/**
-    - backend/node_modules/**
-    - backend/.requirements.zip
-    - backend/.serverless/**
-    - backend/build/**
-    - backend/dist/**
-    - backend/*.egg-info/**
-    - backend/.eggs/**
-    - backend/env/**
 
 custom:
   pythonRequirements:
