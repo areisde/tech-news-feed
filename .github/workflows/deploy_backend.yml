@@ -25,6 +25,10 @@ jobs:
       - name: Install Serverless CLI
         run: npm install -g serverless
 
+      - name: Install Serverless Python plugin
+        working-directory: backend
+        run: npm install serverless-python-requirements
+
       - name: Install Python dependencies
         working-directory: backend
         run: |
