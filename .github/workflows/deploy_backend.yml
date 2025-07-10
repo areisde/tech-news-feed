@@ -12,33 +12,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: Install Serverless CLI
-        run: npm install -g serverless
-
-      - name: Install Serverless dependencies
-        working-directory: backend
-        run: npm install
+      - name: Install Serverless CLI via pipx
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pipx
+          pipx ensurepath
+          pipx install "serverless<4"
 
       - name: Install Python dependencies
         working-directory: backend
         run: |
-          python3.11 -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install -r requirements.txt
 
       - name: Deploy to AWS Lambda
         working-directory: backend 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          npx serverless deploy
+        run: serverless deploy
