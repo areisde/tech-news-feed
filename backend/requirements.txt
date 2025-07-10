@@ -7,3 +7,4 @@ vecs
 fastapi
 uvicorn
 mangum
+numpy<1.25
