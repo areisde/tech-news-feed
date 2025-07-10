@@ -25,14 +25,14 @@ jobs:
       - name: Install Serverless CLI
         run: npm install -g serverless
 
-      - name: Install Serverless Python plugin
+      - name: Install Serverless dependencies
         working-directory: backend
-        run: npm install serverless-python-requirements
+        run: npm install
 
       - name: Install Python dependencies
         working-directory: backend
         run: |
-          python -m pip install --upgrade pip
+          python3.11 -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Deploy to AWS Lambda
@@ -41,4 +41,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          serverless deploy
+          npx serverless deploy
