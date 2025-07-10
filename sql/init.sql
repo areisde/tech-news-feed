@@ -17,3 +17,11 @@ CREATE TABLE IF NOT EXISTS articles (
     url TEXT,
     created_at TIMESTAMP DEFAULT NOW()
 );
+
+-- Table : filters
+CREATE TABLE IF NOT EXISTS filters (
+    id SERIAL PRIMARY KEY,
+    url TEXT NOT NULL,
+    embedding VECTOR(384),
+    relevant BOOLEAN NOT NULL
+);

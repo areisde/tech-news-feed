@@ -2,3 +2,4 @@ feedparser
 supabase
 litellm
 openai
+sentence_transformers
