@@ -70,9 +70,17 @@ functions:
 plugins:
   - serverless-python-requirements
 
+package:
+  exclude:
+    - .venv/**
+    - node_modules/**
+    - __pycache__/**
+    - .pytest_cache/**
+    - .DS_Store
+
 custom:
   pythonRequirements:
-    dockerizePip: false  # disable docker build
+    dockerizePip: true
     zip: true
     pythonBin: python3.11
 #    The following are a few example events you can configure
