@@ -1,6 +1,6 @@
 import os
 from supabase import create_client
-from backend.db.models import Filter
+from db.models import Filter
 import vecs
 
 

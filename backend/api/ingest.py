@@ -2,10 +2,10 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from typing import List, Optional
-from backend.db.crud import add_filter, get_similar_articles
-from backend.services.embeddings import embed_text
-from backend.services.filter import filter_article
-from backend.db.models import Article
+from db.crud import add_filter, get_similar_articles
+from services.embeddings import embed_text
+from services.filter import filter_article
+from db.models import Article
 import logging
 
 router = APIRouter()

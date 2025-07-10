@@ -1,7 +1,7 @@
-from backend.db.models import Article
-from backend.services.embeddings import embed_text
-from backend.db.crud import get_similar_articles
-from backend.db.crud import upload_article
+from db.models import Article
+from services.embeddings import embed_text
+from db.crud import get_similar_articles
+from db.crud import upload_article
 import numpy as np
 
 def filter_article(article: Article) -> bool:

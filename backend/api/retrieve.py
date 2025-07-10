@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
-from backend.db.crud import get_articles
+from db.crud import get_articles
 
 router = APIRouter()
 
