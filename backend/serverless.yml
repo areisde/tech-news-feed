@@ -80,7 +80,7 @@ package:
 
 custom:
   pythonRequirements:
-    dockerizePip: true
+    dockerizePip: false
     zip: true
     pythonBin: python3.11
 #    The following are a few example events you can configure

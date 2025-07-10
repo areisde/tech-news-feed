@@ -43,6 +43,31 @@ async def ingest_articles(request: Request):
     # Parse the request body as a list of articles
     try:
         articles = await request.json()
+        process_articles(articles)
+    except Exception as e:
+        logger.error(f"Error processing request: {e}")
+        return JSONResponse(
+            status_code=400,
+            content={"error": "Invalid request format. Ensure you are sending a JSON array of articles."}
+        )
+
+    return JSONResponse(
+        status_code=200,
+        content={"message": "Articles ingested successfully."}
+    )
+    
+    
+def process_articles(articles: List[Article]):
+    """
+    Process a list of articles by embedding and filtering them.
+    
+    Args:
+        articles (List[Article]): List of Article objects to process.
+        
+    Returns:
+        None: The function processes articles and adds them to the filter database.
+    """
+    try:
         for article in articles:
             article_obj = Article(
                 id=article.get("id"),
@@ -59,8 +84,3 @@ async def ingest_articles(request: Request):
             status_code=400,
             content={"error": "Invalid request format. Ensure you are sending a JSON array of articles."}
         )
-
-    return JSONResponse(
-        status_code=200,
-        content={"message": "Articles ingested successfully."}
-    )
