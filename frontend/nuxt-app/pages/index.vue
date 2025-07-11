@@ -9,7 +9,7 @@
   <div>
     <h1>Welcome to Tech News Feed</h1>
     <p>This is your home page.</p>
-    <ArticleList :articles="articles" />
+    <ArticleList :articles="data ?? []" />
   </div>
 </template>
 

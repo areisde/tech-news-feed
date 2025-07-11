@@ -35,6 +35,7 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+        working-directory: ./backend
 
       # Optional: Add step to run tests here
 
