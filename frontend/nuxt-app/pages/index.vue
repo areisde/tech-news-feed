@@ -36,7 +36,7 @@ import { ar } from '@nuxt/ui/runtime/locale/index.js'
     />
 
   </header>
-  <body class="bg-gray-200 h-[calc(100vh_-_5rem)] overflow-y-auto">
+  <body class="bg-gray-200 h-[calc(100vh_-_5rem)] overflow-y-auto w-1/2">
     <div class="p-4">
       <ArticleList :articles="articles" />
     </div>
