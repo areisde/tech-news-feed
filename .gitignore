@@ -14,7 +14,6 @@ venv/
 
 # OS and editor files
 .DS_Store
-.vscode/
 
 # Test and coverage outputs
 .pytest_cache/
