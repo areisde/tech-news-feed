@@ -5,3 +5,4 @@ openai
 sentence_transformers
 vecs
 supabase
+feedparser
