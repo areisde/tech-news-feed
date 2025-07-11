@@ -2,6 +2,8 @@
     import ArticleList from '~/components/ArticleList.vue'
     const config = useRuntimeConfig()
     const { data, error } = await useFetch('/api/retrieve')
+
+    console.log("Data fetched:", data)
 </script>
 
 
