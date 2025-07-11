@@ -7,8 +7,6 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    public: {
-      apiBase: process.env.BACKEND_API_BASE_URL
-    }
+    apiBase: process.env.BACKEND_API_BASE_URL || 'http://localhost:8000'
   }
 })
