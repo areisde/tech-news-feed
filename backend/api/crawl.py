@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from backend.services.crawler import crawl_all_sources
-from backend.api.ingest import process_articles
+from services.crawler import crawl_all_sources
+from api.ingest import process_articles
 from fastapi.responses import JSONResponse
 
 router = APIRouter()

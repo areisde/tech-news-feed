@@ -1,7 +1,7 @@
 import feedparser
 from datetime import datetime
 from typing import List, Dict
-from backend.db.crud import get_sources
+from db.crud import get_sources
 
 def load_sources() -> tuple[List[str], List[str]]:
     """
