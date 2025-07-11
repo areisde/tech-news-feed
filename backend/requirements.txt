@@ -5,7 +5,4 @@ openai
 sentence_transformers
 vecs
 fastapi
-uvicorn
-mangum
-numpy<1.25
 httpx
