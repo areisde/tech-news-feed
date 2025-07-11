@@ -2,6 +2,8 @@ import feedparser
 from datetime import datetime
 from typing import List, Dict
 from db.crud import get_sources
+import html
+from bs4 import BeautifulSoup
 
 def load_sources() -> tuple[List[str], List[str]]:
     """
@@ -30,10 +32,12 @@ def fetch_rss_articles(rss_urls: List[str]) -> List[Dict]:
         if 'entries' not in feed:
             return articles  # Return empty if no entries found
         for entry in feed.entries:
+            summary_raw = entry.get('summary', '')
+            summary_clean = BeautifulSoup(html.unescape(summary_raw), "html.parser").get_text(separator="\n", strip=True)
             article = {
                 'id': entry.get('id', entry.get('link', '')),
                 'title': entry.get('title', ''),
-                'body': entry.get('summary', ''),
+                'body': summary_clean,
                 'published_at': entry.get('published', ''),
                 'source': source
             }
