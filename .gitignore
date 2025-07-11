@@ -6,6 +6,7 @@ __pycache__/
 
 backend/.requirements.zip
 backend/node_modules
+backend/local.settings.json
 
 # Virtual environments
 venv/
