@@ -1,86 +1,43 @@
-from fastapi import APIRouter, Request
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
-from typing import List, Optional
+from typing import List
 from db.crud import add_filter, get_similar_articles
 from services.embeddings import embed_text
 from services.filter import filter_article
 from db.models import Article
 import logging
 
-router = APIRouter()
-
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-@router.post("/ingest")
-async def ingest_articles(request: Request):
+def ingest_articles(articles: List[dict]):
     """
-    Ingest a batch of raw article objects as a JSON array in the request body.
+    Ingest a batch of raw article objects as a list of dicts.
     Each object must have id, source, title, body (optional), published_at.
-    Returns HTTP 200 on success.
-    
-    Parameters:
-        - articles : JSON array of articles to ingest.
-    
-    Request body example:
-    [
-        {
-            "id": "string",
-            "source": "string",
-            "title": "string",
-            "body": "string",
-            "published_at": "2025-07-10T00:00:00Z"
-        }
-    ]
-
-    Responses:
-        200: Articles ingested successfully.
-        400: Invalid request format.
+    Returns True on success, False on error.
     """
-    # Parse the request body as a list of articles
     try:
-        articles = await request.json()
         process_articles(articles)
+        return True
     except Exception as e:
         logger.error(f"Error processing request: {e}")
-        return JSONResponse(
-            status_code=400,
-            content={"error": "Invalid request format. Ensure you are sending a JSON array of articles."}
-        )
+        return False
 
-    return JSONResponse(
-        status_code=200,
-        content={"message": "Articles ingested successfully."}
-    )
-    
-    
-def process_articles(articles: List[Article]):
+
+def process_articles(articles: List[dict]):
     """
     Process a list of articles by embedding and filtering them.
-    
     Args:
-        articles (List[Article]): List of Article objects to process.
-        
+        articles (List[dict]): List of article dicts to process.
     Returns:
-        None: The function processes articles and adds them to the filter database.
+        None
     """
-    try:
-        for article in articles:
-            article_obj = Article(
-                id=article.get("id"),
-                source=article.get("source"),
-                title=article.get("title"),
-                body=article.get("body", ""),
-                published_at=article.get("published_at"),
-            )
-            
-            filter_article(article_obj)
-    except Exception as e:
-        logger.error(f"Error processing request: {e}")
-        return JSONResponse(
-            status_code=400,
-            content={"error": "Invalid request format. Ensure you are sending a JSON array of articles."}
+    for article in articles:
+        article_obj = Article(
+            id=article.get("id"),
+            source=article.get("source"),
+            title=article.get("title"),
+            body=article.get("body", ""),
+            published_at=article.get("published_at"),
         )
+        filter_article(article_obj)
