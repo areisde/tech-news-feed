@@ -8,9 +8,9 @@
 
 
 <template>
-  <header>
-    <h1 class="text-3xl font-bold mb-4">Tech News Feed</h1>
-    <p class="text-gray-600">Latest articles from various sources</p>
+  <header class="bg-[rgba(20,31,97,1)]">
+    <img src="public/assets/images/nexthink_logo.svg" alt="Nexthink Logo" class="h-20 p-6 inline-block align-middle" />
+    <h1 class="text-3xl font-extralight text-white mb-4 inline-block border-l-2 border-white align-middle pl-4 mt-4">IT Latest</h1>
   </header>
   <body>
     
