@@ -16,8 +16,8 @@ import { ArticleList } from '#components';
     class="w-1/2"
   >
     <template #title="{ item }">
-      <span>{{ item.source }}</span>
-      <span class="float-end">{{ item.title }}</span>
+      <h3>{{ item.source }}</h3>
+      <h2 class="text-xl">{{ item.title }}</h2>
     </template>
 
     <template #date="{ item }">
