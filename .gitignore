@@ -1,50 +1,24 @@
-# Python cache and compiled files
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
 
-backend/.requirements.zip
-backend/node_modules
-backend/local.settings.json
+# Node dependencies
+node_modules
 
-# Virtual environments
-venv/
-.venv/
-
-# OS and editor files
-.DS_Store
-
-# Test and coverage outputs
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Log files
+# Logs
+logs
 *.log
 
-# Environment and secret files
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
 .env
-*.env
-
-
-# Distribution / packaging
-backend/.Python
-backend/env/
-backend/build/
-backend/develop-eggs/
-backend/dist/
-backend/downloads/
-backend/eggs/
-backend/.eggs/
-backend/lib/
-backend/lib64/
-backend/parts/
-backend/sdist/
-backend/var/
-backend/*.egg-info/
-backend/.installed.cfg
-backend/*.egg
-
-# Serverless directories
-backend/.serverless
+.env.*
+!.env.example

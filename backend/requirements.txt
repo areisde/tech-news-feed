@@ -1,7 +1,0 @@
-feedparser
-supabase
-litellm
-openai
-sentence_transformers
-vecs
-beautifulsoup4
